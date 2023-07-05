@@ -33,7 +33,7 @@ def about(request):
 def tech_projects(request, technology):
     try:
         tech_object = Technology.objects.get(technologies=technology)
-        projects = Project.objects.filter(technologies=tech_object)
+        projects = Project.objects.filter(technologies=tech_object).order_by('-creationDate')
         message = None
     except ObjectDoesNotExist:
         projects = []

@@ -21,7 +21,9 @@
                         <li>{{ tech.technologies }}</li>
                     {% endfor %}
                 </ul>
-            </div>
+            {% if project.url != 0 %}
+            <a href='{{ project.url}}'>Link to the project</a>
+            {% endif %}</div>
         </div>
     </div>
 {% endblock %}

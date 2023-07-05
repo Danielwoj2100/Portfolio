@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block extra_style %}
+    h4{ color: #d4220f;
+    }
+{% endblock extra_style %}
+{% block content %}
+    <div class="container text-center py-5">
+        <div class="row">
+            {% if message %}
+                <h2>{{ message }}</h2>
+            {% else %}
+                {% for project in projects %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card" >
+                            <div class="top-card">
+                                <h4>{{ project.creationDate|date:"F Y" }}</h4>
+                                <h2 class="card-title">{{ project.title }}</h2>
+                            </div>
+                            <div class="card-content">
+                                <p class="card-text">Technologies used:</p>
+                                {% for tech in project.technologies.all %}
+                                    <a href="/technology/{{ tech }}">{{ tech.technologies }}</a>
+                                {% endfor %}<br>
+                            </div>
+                            <img src="{{ project.image.url }}" class="card-img-top" onclick="location.href='/project/{{ project.id }}';" style="cursor:pointer;" alt="{{ project.title }}">
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock content %}

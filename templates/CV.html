@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+  <title>Daniel Wójtowicz | CV</title>
+{% endblock title %}
+{% block content %}
+  <style>
+    body {
+      overflow: hidden;
+    }
+  </style>
+  <embed style="width:100%; height:100vh" src="{% static 'CV.pdf' %}" type="application/pdf">
+{% endblock content %}

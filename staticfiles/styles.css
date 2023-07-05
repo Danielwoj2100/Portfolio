@@ -1,0 +1,33 @@
+#about-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+    font-family: Arial, sans-serif;
+}
+
+#text-column {
+    flex: 60%;
+    max-width: 60%;
+    padding: 20px;
+}
+
+#photo-column {
+    flex: 30%;
+    max-width: 30%;
+    padding: 20px;
+    text-align: center;
+}
+
+#profile-photo {
+    border-radius: 50%;
+    width: 90%;
+    max-width: 300px;
+}
+
+h1, h2 {
+    color: #333333;
+}
+
+p {
+    color: #666666;
+}

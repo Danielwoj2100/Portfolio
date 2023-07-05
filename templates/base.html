@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <link rel="icon" type="image/png" href="{% static 'icon.png' %}">
+    {% block title %}<title>Daniel Wójtowicz</title>{% endblock title %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'styles.css' %}">
+<style>
+
+    {% block extra_style %}{% endblock %}
+</style>
+
+</head>
+<body>
+        <nav class="navbar">
+            <div style="flex: 1;">
+                <a href="{% url 'About' %}" style="color: white; margin-left: 45px;">About me</a>
+            </div> <!-- Empty div for left side -->
+            <div style="flex: 1; display: flex; justify-content: center;">
+                <a href="{% url 'index' %}" style="color:whitesmoke; text-decoration: none; font-size: 16px">Daniel Wójtowicz</a>
+            </div> <!-- Centered div containing name -->
+            <div style="flex: 1; display: flex; justify-content: flex-end;">
+                <div class="navbar-right">
+                    <a href="{% url 'CV' %}" style="color: white; margin-right: 45px;">CV - Polish</a> <!-- You may adjust the margin as needed -->
+                </div>
+            </div>
+        </nav>
+        <div class="content">
+    {% block content %}{% endblock %}</div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+<title>Daniel Wójtowicz | About me</title>
+{% endblock title %}
+{% block extra_style %}
+{% endblock extra_style %}
+{% block content %}
+    <div id="about-container">
+        <div id="text-column">
+            <p id="description"></p>
+            <h2>Experience</h2>
+            <p id="experience">{% for exp in experience %}{{ exp.company }}: {{ exp.duration }}{% endfor %}</p>
+            <h2>Language Skills</h2>
+            <p id="languages">|{% for language in languages %} {{ language.name }} : {{ language.level }} |{% endfor %}</p>
+            <h2>Education</h2>
+            <p id="education">{% for education in educations %} {{ education.school }}<br>{{ education.fieldofstudy }}&nbsp{{ education.level }}<br> Will be finished by: {{ education.prognozedend|date:'F Y' }}{% endfor %}</p>
+            <h2>Skills</h2>
+            <p id="skills">|&nbsp{% for skill in skills %}<a href="/technology/{{ skill.name }}">{{ skill.name }}</a> | {% endfor %}</p>
+            <h2>Links</h2>
+            <p id="social-links">| {% for link in links %}<a href="{{ link.url }}">{{ link.name }}</a> | {% endfor %}</p>
+        </div>
+        <div id="photo-column">
+            <img id="profile-photo" src="{% static 'zdj.png' %}" alt="Profile Photo">
+        </div>
+    </div>
+{% endblock content %}
